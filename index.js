@@ -1194,15 +1194,15 @@ async function tick(){
     }
     renderSetup(s);
     renderPause(s);
-    document.getElementById('current').innerHTML = (s.current||[]).map(c=>`<div class="card"><div class="book">${esc(c.title)}</div><div class="sub">piece ${c.chunk}${c.of?' of '+c.of:''} ${c.author?'— '+esc(c.author):''}</div></div>`).join('');
+    document.getElementById('current').innerHTML = (s.current||[]).map(c=>\`<div class="card"><div class="book">\${esc(c.title)}</div><div class="sub">piece \${c.chunk}\${c.of?' of '+c.of:''} \${c.author?'— '+esc(c.author):''}</div></div>\`).join('');
     document.getElementById('tChunks').textContent = s.today.chunks.toLocaleString();
     document.getElementById('tWords').textContent = s.today.words.toLocaleString();
     document.getElementById('tPages').textContent = Math.round(s.today.words/275).toLocaleString();
-    document.getElementById('mine').innerHTML = (s.recent||[]).length ? s.recent.map(r=>`<div class="fi"><span class="t">${ago(r.at)}</span>piece ${r.chunk}${r.of?'/'+r.of:''} of <span class="bk">${esc(r.title)}</span> in ${r.secs}s</div>`).join('') : '<div class="fi">nothing yet this session</div>';
+    document.getElementById('mine').innerHTML = (s.recent||[]).length ? s.recent.map(r=>\`<div class="fi"><span class="t">\${ago(r.at)}</span>piece \${r.chunk}\${r.of?'/'+r.of:''} of <span class="bk">\${esc(r.title)}</span> in \${r.secs}s</div>\`).join('') : '<div class="fi">nothing yet this session</div>';
   } catch {}
   try {
     const f = await fetch('${API_BASE}/jobs/farm-live').then(r=>r.json());
-    document.getElementById('team').innerHTML = (f.recent||[]).slice(0,10).map(r=>`<div class="fi"><span class="t">${ago(r.at)}</span>${esc(r.worker)} read piece ${r.chunk}/${r.of} of <span class="bk">${esc(r.title)}</span></div>`).join('') || '<div class="fi">quiet right now</div>';
+    document.getElementById('team').innerHTML = (f.recent||[]).slice(0,10).map(r=>\`<div class="fi"><span class="t">\${ago(r.at)}</span>\${esc(r.worker)} read piece \${r.chunk}/\${r.of} of <span class="bk">\${esc(r.title)}</span></div>\`).join('') || '<div class="fi">quiet right now</div>';
   } catch {}
 }
 tick(); setInterval(tick, 4000);
