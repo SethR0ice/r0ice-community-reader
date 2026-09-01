@@ -1,0 +1,18 @@
+{
+  "name": "r0ice-community-reader",
+  "version": "0.4.4",
+  "description": "A small background app that lets a volunteer's idle GPU help summarize public-domain books for R0ice's Wisdom Farm archive -- reports hardware capacity, does nothing without consent, pauses itself while you're gaming or streaming.",
+  "main": "index.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SethR0ice/r0ice-community-reader"
+  },
+  "dependencies": {
+    "systeminformation": "^5.22.11",
+    "systray": "^1.0.5"
+  },
+  "devDependencies": {
+    "@yao-pkg/pkg": "^6.21.0"
+  }
+}

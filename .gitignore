@@ -1,0 +1,9 @@
+node_modules/
+config.json
+metrics.jsonl
+stats.json
+bench-result.json
+*.log
+dist/
+*.bak
+*.bak.*
